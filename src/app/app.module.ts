@@ -25,7 +25,11 @@ import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
+import { ContactasComponent } from './contactas';
+import { BasketComponent } from './basket';
 import { AboutComponent } from './about';
+import { HeaderComponent } from './common/header';
+import { FooterComponent } from './common/footer';
 import { NoContentComponent } from './no-content';
 import { XLargeDirective } from './home/x-large';
 
@@ -52,9 +56,13 @@ type StoreType = {
   declarations: [
     AppComponent,
     AboutComponent,
+    ContactasComponent,
+    BasketComponent,
     HomeComponent,
     NoContentComponent,
-    XLargeDirective
+    XLargeDirective,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,
