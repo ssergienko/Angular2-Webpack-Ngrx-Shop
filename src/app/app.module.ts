@@ -1,37 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import {
-  NgModule,
-  ApplicationRef
-} from '@angular/core';
-import {
-  removeNgStyles,
-  createNewHosts,
-  createInputTransfer
-} from '@angularclass/hmr';
-import {
-  RouterModule,
-  PreloadAllModules
-} from '@angular/router';
-
-/*
- * Platform and Environment providers/directives/pipes
- */
+import { NgModule, ApplicationRef } from '@angular/core';
+import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
+import { RouterModule, PreloadAllModules } from '@angular/router';
 import { ENV_PROVIDERS } from './environment';
-import { ROUTES } from './app.routes';
-// App is our top level component
-import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
-import { HomeComponent } from './home';
-import { ContactasComponent } from './contactas';
-import { BasketComponent } from './basket';
-import { AboutComponent } from './about';
-import { HeaderComponent } from './common/header';
-import { FooterComponent } from './common/footer';
+
 import { NoContentComponent } from './no-content';
 import { XLargeDirective } from './home/x-large';
+
+import { HomeComponent } from './home';
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './common/header';
+import { FooterComponent } from './common/footer';
+import { ContactasModule } from './contactas';
+import { AppRoutingModule }   from './app.routes';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
@@ -48,16 +33,10 @@ type StoreType = {
   disposeOldHosts: () => void
 };
 
-/**
- * `AppModule` is the main entry point into Angular2's bootstraping process
- */
 @NgModule({
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
-    AboutComponent,
-    ContactasComponent,
-    BasketComponent,
     HomeComponent,
     NoContentComponent,
     XLargeDirective,
@@ -65,10 +44,10 @@ type StoreType = {
     FooterComponent
   ],
   imports: [ // import Angular's modules
+    AppRoutingModule,
     BrowserModule,
     FormsModule,
-    HttpModule,
-    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
+    HttpModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,

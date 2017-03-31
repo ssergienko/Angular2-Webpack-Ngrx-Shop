@@ -1,1 +1,1 @@
-export * from './basket.component';
+export { BasketModule } from './basket.module';

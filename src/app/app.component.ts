@@ -1,6 +1,3 @@
-/*
- * Angular 2 decorators and services
- */
 import {
   Component,
   OnInit,
@@ -8,10 +5,6 @@ import {
 } from '@angular/core';
 import { AppState } from './app.service';
 
-/*
- * App Component
- * Top Level Component
- */
 @Component({
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
@@ -20,31 +13,13 @@ import { AppState } from './app.service';
   ],
   template: `
     <shop-header></shop-header>
-    <!--<nav>
-      <a [routerLink]=" ['./home'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Home
-      </a>
-      <a [routerLink]=" ['./barrel'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Barrel
-      </a>
-      <a [routerLink]=" ['./about'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        About
-      </a>
-    </nav>-->
+    <hr/>
     <main>
-      <hr/>
-      <hr/>
       <router-outlet></router-outlet>
-      <hr/>
-      <hr/>
     </main>
-
-    <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
-
+    <hr/>
     <shop-footer></shop-footer>
+    <!--<pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>-->
   `
 })
 export class AppComponent implements OnInit {

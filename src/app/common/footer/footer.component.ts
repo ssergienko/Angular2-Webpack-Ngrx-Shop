@@ -12,8 +12,7 @@ import { AppState } from '../../app.service';
     './footer.component.scss'
   ],
   template: `
-    <div>this.localState = {{ localState | json }}</div>
-    <span>Online Shop Footer</span>
+    <span>footer</span>
   `
 })
 export class FooterComponent implements OnInit {
@@ -23,7 +22,7 @@ export class FooterComponent implements OnInit {
   ) {}
 
   public ngOnInit() {
-    console.log('Initial App State', this.appState.state);
+    // console.log('Initial App State', this.appState.state);
   }
 
 }

@@ -57,11 +57,8 @@ module.exports = function (options) {
      * See: http://webpack.github.io/docs/configuration.html#entry
      */
     entry: {
-
       'polyfills': './src/polyfills.browser.ts',
-      'main':      AOT ? './src/main.browser.aot.ts' :
-                  './src/main.browser.ts'
-
+      'main': AOT ? './src/main.browser.aot.ts' : './src/main.browser.ts'
     },
 
     /*
@@ -179,7 +176,7 @@ module.exports = function (options) {
           exclude: [helpers.root('src/index.html')]
         },
 
-        /* 
+        /*
          * File loader for supporting images, for example, in CSS files.
          */
         {
@@ -189,7 +186,7 @@ module.exports = function (options) {
 
         /* File loader for supporting fonts, for example, in CSS files.
         */
-        { 
+        {
           test: /\.(eot|woff2?|svg|ttf)([\?]?.*)$/,
           use: 'file-loader'
         }
@@ -237,7 +234,7 @@ module.exports = function (options) {
       }),
       // Specify the correct order the scripts will be injected in
       new CommonsChunkPlugin({
-        name: ['polyfills', 'vendor'].reverse()
+        name: ['common', 'polyfills', 'vendor'].reverse()
       }),
 
       /**

@@ -7,27 +7,13 @@ import {
   selector: 'basket',
   styles: [``],
   template: `
-    <h1>Welcome to basket!</h1>
-    <br/>
-    <br/>
-    <br/>
-    <form (ngSubmit)="submitState(localState.value)" autocomplete="off">
-      <input
-        [value]="localState.value"
-        (input)="localState.value = $event.target.value"
-        placeholder="Submit Local State to App State"
-        autofocus>
-      <button>Submit Value</button>
-    </form>
-    <div>this.localState = {{ localState | json }}</div>
-    <br/>
-    <br/>
-    <br/>
+    <h1 x-large>Welcome to basket!</h1>
+    <div class="basket">basket</div>
   `
 })
 export class BasketComponent implements OnInit {
   public ngOnInit() {
-    this.appState.set('globalValue: ', 'BasketComponent');
+    // this.appState.set('globalValue: ', 'BasketComponent');
     // this.title.getData().subscribe(data => this.data = data);
   }
 }
