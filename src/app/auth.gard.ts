@@ -20,9 +20,6 @@ export class AuthGuard implements CanActivate {
         return false;
       }
     } else {
-      if (state.url === '/admin') {
-        localStorage.setItem('redirect_url', state.url);
-      }
       this.auth.login();
       return false;
     }

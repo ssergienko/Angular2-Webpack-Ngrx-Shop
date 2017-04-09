@@ -20,7 +20,5 @@ export class OrdersComponent implements OnInit {
   constructor (private route: ActivatedRoute) {
   }
   public ngOnInit() {
-    console.log('redirect_url', '/orders');
-    localStorage.setItem('redirect_url', '/orders');
   }
 }

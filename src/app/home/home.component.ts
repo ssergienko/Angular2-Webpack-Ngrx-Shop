@@ -24,8 +24,8 @@ export class HomeComponent implements OnInit {
   }
 
   public submitState(value: string) {
-    console.log('submitState', value);
+    /*console.log('submitState', value);
     this.appState.set('value', value);
-    this.localState.value = '';
+    this.localState.value = '';*/
   }
 }

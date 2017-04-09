@@ -1,7 +1,8 @@
 import { Injectable }      from '@angular/core';
 import { tokenNotExpired } from 'angular2-jwt';
-import { Router }          from '@angular/router';
+import { Router, NavigationStart }          from '@angular/router';
 import { myConfig }        from './auth.config';
+import 'rxjs/add/operator/filter';
 
 // Avoid name not found warnings
 declare var Auth0Lock: any;
@@ -33,6 +34,20 @@ export class Auth {
       });
       this.lock.hide();
     });
+    router.events
+      .filter(event => event instanceof NavigationStart)
+      .subscribe((event: NavigationStart) => {
+        // @todo:  отфильтровать каким-то образом только нужные события
+        if (event.url === '/admin'
+          || event.url === '/basket'
+          || event.url === '/contactas'
+          || event.url === '/orders'
+          || event.url === '/unauthorized') {
+          console.log('redirect_url', event.url);
+          localStorage.setItem('redirect_url', event.url);
+        }
+      });
+
   }
 
   public login() {
