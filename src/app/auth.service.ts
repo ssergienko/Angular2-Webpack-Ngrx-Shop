@@ -9,16 +9,16 @@ declare var Auth0Lock: any;
 @Injectable()
 export class Auth {
   // Configure Auth0
-  lock = new Auth0Lock(myConfig.clientID, myConfig.domain, {});
-  //Store profile object in auth class
-  userProfile: any;
+  public lock = new Auth0Lock(myConfig.clientID, myConfig.domain, {});
+  // Store profile object in auth class
+  public userProfile: any;
 
   constructor(private router: Router) {
     // Set userProfile attribute if already saved profile
     this.userProfile = JSON.parse(localStorage.getItem('profile'));
 
     // Add callback for lock `authenticated` event
-    this.lock.on("authenticated", (authResult) => {
+    this.lock.on('authenticated', (authResult) => {
       localStorage.setItem('id_token', authResult.idToken);
 
       // Fetch profile information
@@ -33,8 +33,8 @@ export class Auth {
         this.userProfile = profile;
 
         // Redirect if there is a saved url to do so.
-        var redirectUrl: string = localStorage.getItem('redirect_url');
-        if(redirectUrl != undefined){
+        let redirectUrl: string = localStorage.getItem('redirect_url');
+        if (redirectUrl) {
           this.router.navigate([redirectUrl]);
           localStorage.removeItem('redirect_url');
         }
@@ -54,6 +54,8 @@ export class Auth {
   };
 
   public isAdmin() {
+    console.log('-------------------------------');
+    console.log(this.userProfile);
     return this.userProfile && this.userProfile.app_metadata
       && this.userProfile.app_metadata.roles
       && this.userProfile.app_metadata.roles.indexOf('admin') > -1;

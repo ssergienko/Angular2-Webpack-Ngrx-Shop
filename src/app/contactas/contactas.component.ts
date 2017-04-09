@@ -16,7 +16,6 @@ import {
   `
 })
 export class ContactasComponent implements OnInit {
-  constructor () {}
   public ngOnInit() {
     console.log('ContactasComponent');
   }

@@ -15,11 +15,10 @@ import { HomeComponent } from './home';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './common/header';
 import { FooterComponent } from './common/footer';
-import { ContactasModule } from './contactas';
 import { AppRoutingModule }   from './app.routes';
 
 import { AUTH_PROVIDERS }          from 'angular2-jwt';
-import { Auth } from './auth.service'
+import { Auth } from './auth.service';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';

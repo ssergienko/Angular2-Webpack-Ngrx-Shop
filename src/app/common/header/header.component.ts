@@ -27,6 +27,7 @@ import { Auth } from '../../auth.service';
         <div class="row auth-block text-right">
           <span (click)="auth.login()" *ngIf="!auth.authenticated()">Signup/Signin</span>
           <span (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</span>
+          <!--<img [src]="auth.userProfile.picture" alt="" class="profile-img">-->
         </div>
         <div class="row shop-menu-block text-right">
           <div class="basket-block pull-right">
@@ -61,7 +62,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     public appState: AppState,
-    private auth: Auth
+    public auth: Auth
   ) {}
 
   public ngOnInit() {
