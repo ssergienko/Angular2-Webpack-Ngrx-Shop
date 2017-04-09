@@ -1,6 +1,5 @@
 import {
-  Component,
-  OnInit
+  Component
 } from '@angular/core';
 
 @Component({
@@ -15,9 +14,4 @@ import {
     </div>
   `
 })
-export class AdminComponent implements OnInit {
-  constructor () {
-  }
-  public ngOnInit() {
-  }
-}
+export class AdminComponent {}

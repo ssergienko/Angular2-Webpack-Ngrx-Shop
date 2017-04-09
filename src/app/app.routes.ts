@@ -11,9 +11,12 @@ export const routes: Routes = [
   { path: 'home',  component: HomeComponent },
   { path: 'admin', loadChildren: './admin#AdminModule', canActivate: [AuthGuard] },
   { path: 'unauthorized', loadChildren: './unauthorized#UnauthorizedModule' },
-  { path: 'contactas', loadChildren: './contactas#ContactasModule', resolve: { redirectUrl: ContactasResolver } },
-  { path: 'orders', loadChildren: './orders#OrdersModule', resolve: { redirectUrl: OrdersResolver } },
-  { path: 'basket', loadChildren: './basket#BasketModule', resolve: { redirectUrl: BasketResolver } }
+  { path: 'contactas', loadChildren: './contactas#ContactasModule', resolve: {
+    redirectUrl: ContactasResolver }},
+  { path: 'orders', loadChildren: './orders#OrdersModule', resolve: {
+    redirectUrl: OrdersResolver }},
+  { path: 'basket', loadChildren: './basket#BasketModule',
+    resolve: { redirectUrl: BasketResolver }}
 ];
 
 @NgModule({

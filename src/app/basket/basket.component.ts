@@ -1,6 +1,5 @@
 import {
-  Component,
-  OnInit
+  Component
 } from '@angular/core';
 
 @Component({
@@ -15,11 +14,9 @@ import {
     </div>
   `
 })
-export class BasketComponent implements OnInit {
-  constructor () {
-  }
-  public ngOnInit() {
-    // this.appState.set('globalValue: ', 'BasketComponent');
-    // this.title.getData().subscribe(data => this.data = data);
-  }
+export class BasketComponent {
+  /*public ngOnInit() {
+    this.appState.set('globalValue: ', 'BasketComponent');
+    this.title.getData().subscribe(data => this.data = data);
+  }*/
 }

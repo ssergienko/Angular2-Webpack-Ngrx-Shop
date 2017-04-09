@@ -4,13 +4,15 @@ import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class ContactasResolver implements Resolve<any> {
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any>|Promise<any>|any {
+  public resolve(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<any>|Promise<any>|any {
     let redirectUrl = '';
     if (state.url === '/contactas') {
       console.log('redirect_url:', state.url);
       localStorage.setItem('redirect_url', state.url);
       redirectUrl = state.url;
     }
-    return Observable.of({ redirectUrl: redirectUrl });
+    return Observable.of({redirectUrl});
   }
 }

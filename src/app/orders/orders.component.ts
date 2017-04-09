@@ -1,11 +1,7 @@
-import {
-  Component,
-  OnInit
-} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'oreders',
+  selector: 'orders',
   styles: [``],
   template: `
     <div class="row orders-page">
@@ -16,9 +12,4 @@ import { ActivatedRoute } from '@angular/router';
     </div>
   `
 })
-export class OrdersComponent implements OnInit {
-  constructor (private route: ActivatedRoute) {
-  }
-  public ngOnInit() {
-  }
-}
+export class OrdersComponent {}
