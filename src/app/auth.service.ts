@@ -9,36 +9,29 @@ declare var Auth0Lock: any;
 @Injectable()
 export class Auth {
   // Configure Auth0
-  public lock = new Auth0Lock(myConfig.clientID, myConfig.domain, {});
+  private lock = new Auth0Lock(myConfig.clientID, myConfig.domain, {});
   // Store profile object in auth class
-  public userProfile: any;
+  private userProfile: any;
 
   constructor(private router: Router) {
     // Set userProfile attribute if already saved profile
     this.userProfile = JSON.parse(localStorage.getItem('profile'));
-
     // Add callback for lock `authenticated` event
     this.lock.on('authenticated', (authResult) => {
       localStorage.setItem('id_token', authResult.idToken);
-
-      // Fetch profile information
       this.lock.getProfile(authResult.idToken, (error, profile) => {
         if (error) {
-          // Handle error
-          alert(error);
-          return;
+          console.log('Authentication error');
         }
-
         localStorage.setItem('profile', JSON.stringify(profile));
         this.userProfile = profile;
-
-        // Redirect if there is a saved url to do so.
         let redirectUrl: string = localStorage.getItem('redirect_url');
         if (redirectUrl) {
           this.router.navigate([redirectUrl]);
           localStorage.removeItem('redirect_url');
         }
       });
+      this.lock.hide();
     });
   }
 
@@ -54,17 +47,17 @@ export class Auth {
   };
 
   public isAdmin() {
-    console.log('-------------------------------');
-    console.log(this.userProfile);
-    return this.userProfile && this.userProfile.app_metadata
+    return this.userProfile.name === 'sergey.s.sergienko@gmail.com';
+    /*return this.userProfile && this.userProfile.app_metadata
       && this.userProfile.app_metadata.roles
-      && this.userProfile.app_metadata.roles.indexOf('admin') > -1;
+      && this.userProfile.app_metadata.roles.indexOf('admin') > -1;*/
   }
 
   public logout() {
     // Remove token from localStorage
     localStorage.removeItem('id_token');
     localStorage.removeItem('profile');
+    localStorage.removeItem('redirect_url');
     this.userProfile = undefined;
     this.router.navigate(['']);
   };

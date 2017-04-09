@@ -2,6 +2,7 @@ import {
   Component,
   OnInit
 } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'contactas',
@@ -16,7 +17,10 @@ import {
   `
 })
 export class ContactasComponent implements OnInit {
+  constructor (private route: ActivatedRoute) {
+  }
   public ngOnInit() {
-    console.log('ContactasComponent');
+    console.log('redirect_url', '/contactas');
+    localStorage.setItem('redirect_url', '/contactas');
   }
 }

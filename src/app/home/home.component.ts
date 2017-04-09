@@ -20,7 +20,6 @@ export class HomeComponent implements OnInit {
   ) {}
 
   public ngOnInit() {
-    console.log('hello `Home` component');
     // this.title.getData().subscribe(data => this.data = data);
   }
 

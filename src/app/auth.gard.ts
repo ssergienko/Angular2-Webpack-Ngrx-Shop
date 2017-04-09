@@ -1,10 +1,9 @@
 // app/auth.guard.ts
-
 import { Injectable }             from '@angular/core';
 import { Router,
          ActivatedRouteSnapshot,
-         RouterStateSnapshot }    from '@angular/router';
-import { CanActivate }            from '@angular/router';
+         RouterStateSnapshot,
+         CanActivate }    from '@angular/router';
 import { Auth }                   from './auth.service';
 
 @Injectable()
@@ -12,19 +11,19 @@ export class AuthGuard implements CanActivate {
 
   constructor(private auth: Auth, private router: Router) {}
 
-  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if(this.auth.authenticated()){
-      if(this.auth.isAdmin()){
+  public canActivate (next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    if (this.auth.authenticated()) {
+      if (this.auth.isAdmin()) {
         return true;
       } else {
-        this.router.navigate(['unauthorized']);
+        this.router.navigate(['unauthorized']); // @todo: change to 'nopermitted'
         return false;
       }
     } else {
-      // Save URL to redirect to after login and fetching profile to get roles
-      localStorage.setItem('redirect_url', state.url);
+      if (state.url === '/admin') {
+        localStorage.setItem('redirect_url', state.url);
+      }
       this.auth.login();
-      this.router.navigate(['']);
       return false;
     }
   }

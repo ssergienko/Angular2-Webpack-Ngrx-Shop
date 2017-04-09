@@ -1,6 +1,6 @@
 import { HomeComponent } from './home';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
 import { AuthGuard } from './auth.gard';
 
 export const routes: Routes = [
@@ -19,4 +19,8 @@ export const routes: Routes = [
   providers: [AuthGuard]
 })
 
-export class AppRoutingModule {}
+export class AppRoutingModule {
+  constructor (private route: ActivatedRoute) {
+    
+  }
+}

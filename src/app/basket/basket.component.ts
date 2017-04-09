@@ -2,6 +2,7 @@ import {
   Component,
   OnInit
 } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'basket',
@@ -16,7 +17,11 @@ import {
   `
 })
 export class BasketComponent implements OnInit {
+  constructor (private route: ActivatedRoute) {
+  }
   public ngOnInit() {
+    console.log('redirect_url', '/basket');
+    localStorage.setItem('redirect_url', '/basket');
     // this.appState.set('globalValue: ', 'BasketComponent');
     // this.title.getData().subscribe(data => this.data = data);
   }
