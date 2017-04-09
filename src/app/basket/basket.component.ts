@@ -7,8 +7,12 @@ import {
   selector: 'basket',
   styles: [``],
   template: `
-    <h1 x-large>Welcome to basket!</h1>
-    <div class="basket">basket</div>
+    <div class="row basket-page">
+      <div class="col-md-12">
+        <h1 x-large>Welcome to basket!</h1>
+        <div class="basket">basket</div>
+      </div>
+    </div>
   `
 })
 export class BasketComponent implements OnInit {

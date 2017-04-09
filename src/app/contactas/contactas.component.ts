@@ -7,11 +7,16 @@ import {
   selector: 'contactas',
   styles: [``],
   template: `
-    <h1 x-large>Contact as motherfucker</h1>
-    <div>contactas</div>
+    <div class="row contactas-page">
+      <div class="col-md-12">
+        <h1 x-large>Contact as here</h1>
+        <div>contact as</div>
+      </div>
+    </div>
   `
 })
 export class ContactasComponent implements OnInit {
+  constructor () {}
   public ngOnInit() {
     console.log('ContactasComponent');
   }

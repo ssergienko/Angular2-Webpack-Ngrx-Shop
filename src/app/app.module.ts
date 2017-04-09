@@ -9,7 +9,7 @@ import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 
 import { NoContentComponent } from './no-content';
-import { XLargeDirective } from './home/x-large';
+import { XLargeDirectiveModule } from './common/directives/x-large';
 
 import { HomeComponent } from './home';
 import { AppComponent } from './app.component';
@@ -17,6 +17,9 @@ import { HeaderComponent } from './common/header';
 import { FooterComponent } from './common/footer';
 import { ContactasModule } from './contactas';
 import { AppRoutingModule }   from './app.routes';
+
+import { AUTH_PROVIDERS }          from 'angular2-jwt';
+import { Auth } from './auth.service'
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
@@ -39,7 +42,6 @@ type StoreType = {
     AppComponent,
     HomeComponent,
     NoContentComponent,
-    XLargeDirective,
     HeaderComponent,
     FooterComponent
   ],
@@ -47,11 +49,14 @@ type StoreType = {
     AppRoutingModule,
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    XLargeDirectiveModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    AUTH_PROVIDERS,
+    Auth
   ]
 })
 export class AppModule {

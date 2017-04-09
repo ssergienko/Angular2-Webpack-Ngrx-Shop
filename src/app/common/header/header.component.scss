@@ -1,23 +1,68 @@
-$wholeHeaderHeight: 120px;
-$logoSize: 80px;
-$basketSize: 60px;
+@import '../../../styles/_variables';
 
-shop-header {
-  display: flex;
-  justify-content: space-between;
-  height: $wholeHeaderHeight;
+.header-block {
+  position: relative;
+  margin: 0;
+  height: $header-height;
   width: 100%;
-
-  .shop-logo img {
-    height: $logoSize;
-    weight: $logoSize;
+  background-color: $dark-background;
+  .shop-logo {
+    padding: 10px 0;
+    a {
+      color: $text-color-on-dark;
+      font-size: 32px;
+      decoration: none;
+    }
+  }
+  .auth-block {
+    padding: 10px;
+    span {
+      color: $text-color-on-dark;
+      cursor: pointer;
+    }
+  }
+  .shop-menu-block {
+    padding: 30px 10px 10px;
+    .menu-items {
+      margin-top: 17px;
+      a {
+        color: $text-color-on-dark;
+        padding: 0 6px;
+      }
+    }
+    .basket-block {
+      position: relative;
+      width: 120px;
+      span.counter {
+        position: absolute;
+        top: -4px;
+        left: 39px;
+        color: #F08804;
+        font-weight: 600;
+      }
+      span {
+        color: $text-color-on-dark;
+      }
+    }
   }
 
-  .basket {
-    text-align: right;
-    img {
-      height: $basketSize;
-      weight: $basketSize;
+  @media only screen and (max-width: 895px) {
+    .shop-menu-block {
+      padding: 10px 10px 0 0;
+      .menu-items {
+        margin-top: 40px;
+      }
+      .basket-block {
+        position: relative;
+        width: 120px;
+        span.counter {
+          position: absolute;
+          top: -4px;
+          right: 14px;
+          color: #F08804;
+          font-weight: 600;
+        }
+      }
     }
   }
 

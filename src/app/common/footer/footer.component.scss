@@ -1,24 +1,8 @@
-$wholeHeaderHeight: 120px;
-$logoSize: 80px;
-$basketSize: 60px;
+@import '../../../styles/_variables';
 
-shop-header {
-  display: flex;
-  justify-content: space-between;
-  height: $wholeHeaderHeight;
+shop-footer {
+  display: block;
+  height: $footerHeight;
   width: 100%;
-
-  .shop-logo img {
-    height: $logoSize;
-    weight: $logoSize;
-  }
-
-  .basket {
-    text-align: right;
-    img {
-      height: $basketSize;
-      weight: $basketSize;
-    }
-  }
-
+  background-color: $dark-background;
 }

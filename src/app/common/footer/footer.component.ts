@@ -12,7 +12,7 @@ import { AppState } from '../../app.service';
     './footer.component.scss'
   ],
   template: `
-    <span>footer</span>
+    <span></span>
   `
 })
 export class FooterComponent implements OnInit {

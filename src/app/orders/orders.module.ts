@@ -1,12 +1,12 @@
-import { BasketComponent } from './basket.component';
+import { OrdersComponent } from './orders.component';
 import { RouterModule }        from '@angular/router';
 import { NgModule } from '@angular/core';
-import { routes } from './basket.routing';
+import { routes } from './orders.routing';
 import { XLargeDirectiveModule } from '../common/directives/x-large';
 
 @NgModule({
   declarations: [
-    BasketComponent
+    OrdersComponent
   ],
   imports: [
     RouterModule.forChild(routes),
@@ -14,6 +14,6 @@ import { XLargeDirectiveModule } from '../common/directives/x-large';
   ],
 })
 
-export class BasketModule {
+export class OrdersModule {
   public static routes = routes;
 }

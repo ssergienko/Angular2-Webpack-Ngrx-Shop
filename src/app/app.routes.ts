@@ -6,6 +6,7 @@ export const routes: Routes = [
   { path: '',      component: HomeComponent },
   { path: 'home',  component: HomeComponent },
   { path: 'contactas', loadChildren: './contactas#ContactasModule' },
+  { path: 'orders', loadChildren: './orders#OrdersModule' },
   { path: 'basket', loadChildren: './basket#BasketModule' }
 ];
 
