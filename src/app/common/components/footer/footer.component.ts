@@ -3,7 +3,7 @@ import {
   OnInit,
   ViewEncapsulation
 } from '@angular/core';
-import { AppState } from '../../app.service';
+import { AppState } from '../../../app.service';
 
 @Component({
   selector: 'shop-footer',

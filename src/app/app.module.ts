@@ -11,10 +11,9 @@ import { AppState, InternalStateType } from './app.service';
 import { NoContentComponent } from './no-content';
 import { XLargeDirectiveModule } from './common/directives/x-large';
 
-import { HomeComponent } from './home';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './common/header';
-import { FooterComponent } from './common/footer';
+import { HeaderComponent } from './common/components/header';
+import { FooterComponent } from './common/components/footer';
 import { AppRoutingModule }   from './app.routes';
 
 import { AUTH_PROVIDERS }          from 'angular2-jwt';
@@ -39,7 +38,6 @@ type StoreType = {
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
-    HomeComponent,
     NoContentComponent,
     HeaderComponent,
     FooterComponent

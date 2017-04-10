@@ -2,8 +2,8 @@
  * Angular 2 decorators and services
  */
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { AppState } from '../../app.service';
-import { Auth } from '../../auth.service';
+import { AppState } from '../../../app.service';
+import { Auth } from '../../../auth.service';
 
 @Component({
   selector: 'shop-header',
