@@ -9,7 +9,7 @@ import { MenuItem } from './category-menu.item';
 })
 
 export class CategoryMenuComponent implements OnInit {
-  categories: MenuItem[];
+  public categories: MenuItem[];
   constructor (
     public catMenuService: CategoryMenuService
   ) {}
@@ -17,13 +17,13 @@ export class CategoryMenuComponent implements OnInit {
     this.getCategories();
   }
   public getCategories(): void {
-    this.catMenuService.getCategories().then(categories => this.categories = categories);
+    this.catMenuService.getCategories().then((categories) => this.categories = categories);
   }
 }
 
 /* implements OnInit {
 
-  /*constructor(
+  /* constructor(
     public appState: AppState
   ) {}
 

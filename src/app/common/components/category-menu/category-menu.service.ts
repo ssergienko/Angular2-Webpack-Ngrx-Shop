@@ -5,7 +5,7 @@ import { MenuItems } from './category-menu.mock';
 
 @Injectable()
 export class CategoryMenuService {
-  getCategories(): Promise<MenuItem[]> {
+  public getCategories(): Promise<MenuItem[]> {
     return Promise.resolve(MenuItems);
   }
 }

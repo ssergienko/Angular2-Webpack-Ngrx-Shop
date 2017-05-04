@@ -1,6 +1,7 @@
 import { MenuItem } from './category-menu.item';
 
 export const MenuItems: MenuItem[] = [
+  { id: 0, name: 'Все' },
   { id: 1, name: 'Книги' },
   { id: 2, name: 'Фильмы' },
   { id: 3, name: 'Одежда' },
@@ -8,4 +9,4 @@ export const MenuItems: MenuItem[] = [
   { id: 5, name: 'Техника' },
   { id: 6, name: 'Смартфоны' },
   { id: 7, name: 'Разное' }
-]
+];
