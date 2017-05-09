@@ -16,13 +16,7 @@ import {
   `
 })
 export class FooterComponent implements OnInit {
-
-  constructor(
-    // public appState: AppState
-  ) {}
-
   public ngOnInit() {
-    // console.log('Initial App State', this.appState.state);
+    console.log('Footer component ngOnInit');
   }
-
 }

@@ -60,16 +60,8 @@ export class AppModule {
     public appRef: ApplicationRef
   ) {}
 
-  public hmrOnInit(store: StoreType) {
-
-  }
-
-  public hmrOnDestroy(store: StoreType) {
-
-  }
-
-  public hmrAfterDestroy(store: StoreType) {
-
-  }
+  /* public hmrOnInit(store: StoreType) {}
+  public hmrOnDestroy(store: StoreType) {}
+  public hmrAfterDestroy(store: StoreType) {} */
 
 }
