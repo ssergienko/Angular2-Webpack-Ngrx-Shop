@@ -3,7 +3,7 @@ import {
   OnInit,
   ViewEncapsulation
 } from '@angular/core';
-import { AppState } from '../../../app.service';
+// import { AppState } from '../../../app.service';
 
 @Component({
   selector: 'shop-footer',
@@ -18,7 +18,7 @@ import { AppState } from '../../../app.service';
 export class FooterComponent implements OnInit {
 
   constructor(
-    public appState: AppState
+    // public appState: AppState
   ) {}
 
   public ngOnInit() {

@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { AppState } from './app.service';
 import { Auth } from './auth.service';
 
 @Component({
@@ -16,7 +15,6 @@ import { Auth } from './auth.service';
       </main>
     </div>
     <shop-footer></shop-footer>
-    <!--<pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>-->
   `
 })
 export class AppComponent implements OnInit {
@@ -25,12 +23,10 @@ export class AppComponent implements OnInit {
   public url = 'https://twitter.com/AngularClass';
 
   constructor(
-    public appState: AppState,
     private auth: Auth
   ) {}
 
   public ngOnInit() {
-    console.log('Initial App State', this.appState.state);
   }
 
 }

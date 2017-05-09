@@ -1,8 +1,4 @@
-/*
- * Angular 2 decorators and services
- */
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { AppState } from '../../../app.service';
 import { Auth } from '../../../auth.service';
 
 @Component({
@@ -61,12 +57,10 @@ export class HeaderComponent implements OnInit {
   public basketurl = '';
 
   constructor(
-    public appState: AppState,
     public auth: Auth
   ) {}
 
   public ngOnInit() {
-    console.log('Initial App State', this.appState.state);
   }
 
 }
