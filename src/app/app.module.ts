@@ -18,6 +18,11 @@ import { AppRoutingModule }   from './app.routes';
 import { AUTH_PROVIDERS }          from 'angular2-jwt';
 import { Auth } from './auth.service';
 
+// store
+import { StoreModule } from '@ngrx/store';
+// reducer
+import { cartReducer } from './common/components/header/cart/cart.reducer';
+
 import '../styles/styles.scss';
 import '../styles/headings.css';
 
@@ -45,7 +50,8 @@ type StoreType = {
     BrowserModule,
     FormsModule,
     HttpModule,
-    XLargeDirectiveModule
+    XLargeDirectiveModule,
+    StoreModule.provideStore({ cart: cartReducer })
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,

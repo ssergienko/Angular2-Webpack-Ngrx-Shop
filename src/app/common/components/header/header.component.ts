@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Auth } from '../../../auth.service';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'shop-header',
@@ -28,7 +30,7 @@ import { Auth } from '../../../auth.service';
         <div class="row shop-menu-block text-right">
           <div class="basket-block pull-right">
             <a [routerLink]="['/basket']">
-              <span class="counter">0</span>
+              <span class="counter">{{ counter | async }}</span>
               <svg height="32" width="42">
                 <line x1="0" y1="0" x2="6" y2="0" style="stroke:white;stroke-width:5" />
                 <line x1="6" y1="0" x2="15" y2="18" style="stroke:white;stroke-width:3" />
@@ -55,10 +57,14 @@ export class HeaderComponent implements OnInit {
   public shopTitle = 'Make your best choise ever!';
   public url = '';
   public basketurl = '';
+  private counter: Observable<number>;
 
   constructor(
-    public auth: Auth
-  ) {}
+    public auth: Auth,
+    private _store: Store<any>
+  ) {
+    this.counter = _store.select('cart');
+  }
 
   public ngOnInit() {
     console.log('Header component ngOnInit');
