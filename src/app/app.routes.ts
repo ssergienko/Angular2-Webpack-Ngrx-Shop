@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
-import { AuthGuard } from './auth.gard';
+import { AuthGuard } from './auth/auth.gard';
 import { ContactasResolver } from './contactas/contactas.resolver';
 import { BasketResolver } from './basket/basket.resolver';
 import { OrdersResolver } from './orders/orders.resolver';
@@ -8,14 +8,14 @@ import { OrdersResolver } from './orders/orders.resolver';
 export const routes: Routes = [
   { path: '', loadChildren: './home#HomeModule' },
   { path: 'home',  loadChildren: './home#HomeModule' },
-  { path: 'admin', loadChildren: './admin#AdminModule', canActivate: [AuthGuard] },
+  { path: 'admin', loadChildren: './admin#AdminModule', canActivate: [ AuthGuard ] },
   { path: 'unauthorized', loadChildren: './unauthorized#UnauthorizedModule' },
   { path: 'contactas', loadChildren: './contactas#ContactasModule', resolve: {
     redirectUrl: ContactasResolver }},
   { path: 'orders', loadChildren: './orders#OrdersModule', resolve: {
     redirectUrl: OrdersResolver }},
-  { path: 'basket', loadChildren: './basket#BasketModule',
-    resolve: { redirectUrl: BasketResolver }}
+  { path: 'basket', loadChildren: './basket#BasketModule', resolve: {
+    redirectUrl: BasketResolver }}
 ];
 
 @NgModule({
@@ -29,7 +29,5 @@ export const routes: Routes = [
 })
 
 export class AppRoutingModule {
-  constructor (private route: ActivatedRoute) {
-
-  }
+  constructor (private route: ActivatedRoute) {}
 }

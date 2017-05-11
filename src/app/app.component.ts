@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Auth } from './auth.service';
+import { Auth } from './auth/auth.service';
 
 @Component({
   selector: 'app',

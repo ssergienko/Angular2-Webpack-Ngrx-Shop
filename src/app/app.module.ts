@@ -3,7 +3,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule, ApplicationRef } from '@angular/core';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
-import { RouterModule, PreloadAllModules } from '@angular/router';
 import { ENV_PROVIDERS } from './environment';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 
@@ -16,7 +15,7 @@ import { FooterComponent } from './common/components/footer';
 import { AppRoutingModule }   from './app.routes';
 
 import { AUTH_PROVIDERS }          from 'angular2-jwt';
-import { Auth } from './auth.service';
+import { Auth } from './auth/auth.service';
 
 // store
 import { StoreModule } from '@ngrx/store';
@@ -26,16 +25,9 @@ import { cartReducer } from './common/components/header/cart/cart.reducer';
 import '../styles/styles.scss';
 import '../styles/headings.css';
 
-// Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS
 ];
-
-type StoreType = {
-  // state: InternalStateType,
-  restoreInputValues: () => void,
-  disposeOldHosts: () => void
-};
 
 @NgModule({
   bootstrap: [ AppComponent ],
@@ -45,7 +37,7 @@ type StoreType = {
     HeaderComponent,
     FooterComponent
   ],
-  imports: [ // import Angular's modules
+  imports: [
     AppRoutingModule,
     BrowserModule,
     FormsModule,
@@ -53,7 +45,7 @@ type StoreType = {
     XLargeDirectiveModule,
     StoreModule.provideStore({ cart: cartReducer })
   ],
-  providers: [ // expose our Services and Providers into Angular's dependency injection
+  providers: [
     ENV_PROVIDERS,
     APP_PROVIDERS,
     AUTH_PROVIDERS,
@@ -61,13 +53,25 @@ type StoreType = {
   ]
 })
 export class AppModule {
-
-  constructor(
-    public appRef: ApplicationRef
-  ) {}
-
-  /* public hmrOnInit(store: StoreType) {}
-  public hmrOnDestroy(store: StoreType) {}
-  public hmrAfterDestroy(store: StoreType) {} */
-
+  constructor(public appRef: ApplicationRef) {
+    console.log('app module init');
+  }
+  private hmrOnInit(store) {
+    if (!store || !store.state) { return; }
+    if ('restoreInputValues' in store) { store.restoreInputValues(); }
+    this.appRef.tick();
+    delete store.state;
+    delete store.restoreInputValues;
+  }
+  private hmrOnDestroy(store) {
+    let cmpLocation = this.appRef.components.map((cmp) => cmp.location.nativeElement);
+    store.disposeOldHosts = createNewHosts(cmpLocation);
+    store.state = { data: 'yolo' };
+    store.restoreInputValues  = createInputTransfer();
+    removeNgStyles();
+  }
+  private hmrAfterDestroy(store) {
+    store.disposeOldHosts();
+    delete store.disposeOldHosts;
+  }
 }
