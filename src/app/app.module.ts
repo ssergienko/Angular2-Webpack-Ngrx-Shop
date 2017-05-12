@@ -19,8 +19,9 @@ import { Auth } from './auth/auth.service';
 
 // store
 import { StoreModule } from '@ngrx/store';
-// reducer
-import { cartReducer } from './common/components/header/cart/cart.reducer';
+// reducers
+import { CartInterface } from './common/components/header/cart/cart.interface';
+import { CartReducer } from './common/components/header/cart/cart.reducer';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
@@ -43,7 +44,7 @@ const APP_PROVIDERS = [
     FormsModule,
     HttpModule,
     XLargeDirectiveModule,
-    StoreModule.provideStore({ cart: cartReducer })
+    StoreModule.provideStore({ cart: CartReducer })
   ],
   providers: [
     ENV_PROVIDERS,

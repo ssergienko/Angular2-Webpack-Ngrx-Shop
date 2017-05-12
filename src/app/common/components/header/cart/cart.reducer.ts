@@ -1,11 +1,18 @@
 import { ActionReducer, Action } from '@ngrx/store';
+import { CartInterface } from './cart.interface';
 
-export function cartReducer(state: number = 0, action: Action) {
+const initialState: CartInterface = {
+    items: []
+};
+
+export function CartReducer(state: CartInterface = initialState, action: Action) {
   switch (action.type) {
     case 'ADD_ITEM':
-      return state + 1;
+      state.items.push(action.payload);
+      //console.log(state);
+      return state;
     case 'REMOVE_ITEM':
-      return state - 1;
+      return state.items.slice(-1);
     default:
       return state;
   }

@@ -14,6 +14,6 @@ export class HomeComponent implements OnInit {
     console.log('Home component ngOnInit');
   }
   public addItemToCart() {
-    this._store.dispatch({ type: 'ADD_ITEM' });
+    this._store.dispatch({ type: 'ADD_ITEM', payload: { id: 1, name: 'Socks', price: 1000 } });
   }
 }
