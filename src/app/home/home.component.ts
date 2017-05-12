@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { ItemInterface } from '../common/components/header/cart/item.interface';
+
+const item: ItemInterface = {
+    id: 0,
+    name: 'Socks',
+    price: 1000
+};
 
 @Component({
   selector: 'home',
@@ -14,6 +21,6 @@ export class HomeComponent implements OnInit {
     console.log('Home component ngOnInit');
   }
   public addItemToCart() {
-    this._store.dispatch({ type: 'ADD_ITEM', payload: { id: 1, name: 'Socks', price: 1000 } });
+    this._store.dispatch({ type: 'ADD_ITEM', payload: item });
   }
 }
